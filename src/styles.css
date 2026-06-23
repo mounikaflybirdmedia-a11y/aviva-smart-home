@@ -1,0 +1,118 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-whatsapp: var(--whatsapp);
+  --color-logo-blue: var(--logo-blue);
+  --color-logo-orange: var(--logo-orange);
+  --color-logo-green: var(--logo-green);
+  --color-logo-navy: var(--logo-navy);
+  --color-logo-yellow: var(--logo-yellow);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* === LOGO PALETTE === */
+  /* Logo dark charcoal navy  (#1E2A3A) */
+  /* Logo vibrant blue        (#2196F3) */
+  /* Logo orange accent       (#F97316) */
+  /* Logo green accent        (#22C55E) */
+  /* Logo red accent          (#EF4444) */
+  /* Logo yellow accent       (#EAB308) */
+
+  --background: oklch(0.985 0.003 230);
+  --foreground: oklch(0.18 0.055 240);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.055 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.055 240);
+
+  /* Primary = dark charcoal navy (logo house / "aviva" text) */
+  --primary: oklch(0.20 0.065 240);
+  --primary-foreground: oklch(0.98 0.003 230);
+
+  /* Secondary = vibrant brand blue (logo "smart" text + robot) */
+  --secondary: oklch(0.55 0.22 242);
+  --secondary-foreground: oklch(0.99 0.003 230);
+
+  --muted: oklch(0.96 0.008 230);
+  --muted-foreground: oklch(0.46 0.03 240);
+
+  /* Accent = logo orange */
+  --accent: oklch(0.68 0.21 42);
+  --accent-foreground: oklch(0.99 0.003 230);
+
+  --destructive: oklch(0.60 0.22 27);
+  --destructive-foreground: oklch(0.99 0.003 230);
+
+  --border: oklch(0.90 0.012 235);
+  --input: oklch(0.93 0.010 235);
+  --ring: oklch(0.55 0.22 242);
+
+  /* Logo-matched named tokens */
+  --logo-blue: oklch(0.55 0.22 242);       /* #2196F3 */
+  --logo-orange: oklch(0.68 0.21 42);      /* #F97316 */
+  --logo-green: oklch(0.65 0.20 155);      /* #22C55E */
+  --logo-navy: oklch(0.20 0.065 240);      /* #1E2A3A */
+  --logo-yellow: oklch(0.80 0.18 90);      /* #EAB308 */
+  --gold: oklch(0.68 0.21 42);             /* repoint gold → logo orange */
+  --whatsapp: oklch(0.65 0.17 150);
+
+  /* Gradients using logo colors */
+  --gradient-hero: linear-gradient(135deg, oklch(0.16 0.065 240) 0%, oklch(0.22 0.08 242) 50%, oklch(0.18 0.07 238) 100%);
+  --gradient-blue: linear-gradient(135deg, oklch(0.55 0.22 242), oklch(0.48 0.20 248));
+  --gradient-orange: linear-gradient(135deg, oklch(0.72 0.21 42), oklch(0.62 0.20 38));
+  --gradient-card: linear-gradient(160deg, oklch(1 0 0) 0%, oklch(0.97 0.006 235) 100%);
+  --gradient-multicolor: linear-gradient(135deg, oklch(0.68 0.21 42) 0%, oklch(0.55 0.22 242) 50%, oklch(0.65 0.20 155) 100%);
+
+  --shadow-luxe: 0 30px 80px -30px oklch(0.20 0.065 240 / 0.40);
+  --shadow-soft: 0 10px 40px -10px oklch(0.20 0.065 240 / 0.12);
+  --shadow-blue: 0 10px 40px -10px oklch(0.55 0.22 242 / 0.45);
+  --shadow-orange: 0 10px 40px -10px oklch(0.68 0.21 42 / 0.50);
+  /* keep alias so existing references compile */
+  --shadow-gold: var(--shadow-orange);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
